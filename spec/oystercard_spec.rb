@@ -23,4 +23,17 @@ end
      expect(subject).to respond_to(:deduct).with(1).argument
      expect{subject.deduct 1}.to change{subject.balance}.by -1
 end
+
+
+  it 'touch_in changes card in use state to be true' do
+    subject.touch_in
+    expect( subject.in_journey?).to eq true
+  end
+
+  it 'touch_out changes card in use state to be false' do
+    subject.touch_in
+    subject.touch_out
+    expect( subject.in_journey?).to eq false
+  end
+
 end
