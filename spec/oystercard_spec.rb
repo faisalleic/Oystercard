@@ -17,15 +17,15 @@ describe Oystercard do
   it 'has a maximum limit of £90' do
     subject.top_up(90)
     expect{subject.top_up(91)}.to raise_error "Max Balance reached. Your balance is: 90"
-end
+  end
 
   it 'deducts fare from the card' do
-     # expect(subject).to respond_to(:deduct).with(1).argument
-     # expect{subject.deduct 1}.to change{subject.balance}.by -1
-end
+    # expect(subject).to respond_to(:deduct).with(1).argument
+    # expect{subject.deduct 1}.to change{subject.balance}.by -1
+  end
 
   it 'checks minimum balance, raise error if < £1' do
-      expect{subject.touch_in}.to raise_error "You do not have enough balance. Minimum needed: £1"
+    expect{subject.touch_in}.to raise_error "You do not have enough balance. Minimum needed: £1"
   end
 
 
