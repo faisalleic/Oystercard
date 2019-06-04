@@ -24,13 +24,19 @@ end
      expect{subject.deduct 1}.to change{subject.balance}.by -1
 end
 
+  it 'checks minimum balance, raise error if < £1' do
+      expect{subject.touch_in}.to raise_error "You do not have enough balance. Minimum needed: £1"
+  end
+
 
   it 'touch_in changes card in use state to be true' do
+    subject.top_up(10)
     subject.touch_in
     expect( subject.in_journey?).to eq true
   end
 
   it 'touch_out changes card in use state to be false' do
+    subject.top_up(10)
     subject.touch_in
     subject.touch_out
     expect( subject.in_journey?).to eq false
