@@ -56,8 +56,8 @@ describe Oystercard do
 
   it 'saves the entry station' do
     subject.top_up(10)
-    subject.touch_in(station)
-    expect(subject.entry_station).to eq station
+    subject.touch_in("ilford")
+    expect(subject.entry_station).to eq("ilford")
   end
 
   it 'stores exit station' do
@@ -69,8 +69,8 @@ describe Oystercard do
 
   it 'stores a journey' do
     subject.top_up(10)
-    subject.touch_in(station)
-    subject.touch_out(exit_station)
-    expect(subject.journeys).not_to be_empty
+    subject.touch_in("Barking")
+    subject.touch_out("Ilford")
+    expect(subject.journey_history).to eq ["Barking" => "Ilford"]
   end
 end
