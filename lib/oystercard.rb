@@ -1,5 +1,5 @@
 class Oystercard
-  attr_accessor :balance, :journeys, :entry_station
+  attr_accessor :balance, :journeys, :entry_station, :exit_station
 
   MAXIMUM_LIMIT = 90
   DEFAULT_BALANCE = 0
