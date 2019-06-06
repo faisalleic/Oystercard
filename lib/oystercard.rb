@@ -8,8 +8,8 @@ class Oystercard
   def initialize
     @balance = 0
     @in_use = false
-    @entry_station = nil
-    @exit_station = nil
+    @entry_station
+    @exit_station
     @journeys = []
   end
 
@@ -52,9 +52,9 @@ class Oystercard
   end
 
   private
+
   def deduct(fare)
     @balance -= fare
   end
-
 
 end
